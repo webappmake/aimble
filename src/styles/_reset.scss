@@ -1,0 +1,46 @@
+
+html { width: 100vw; height: calc(var(--vh, 1vh) * 100); }
+body,div,h1,h2,h3,h4,h5,h6,ol,ul,li,dl,dt,dd,a,img,p,span,
+form,fieldset,legend,label,input,select,button,
+table,caption,colgroup,col,thead,tbody,tr,th,td,address,tfoot,
+header,nav,footer,section,article,mark,figure,figcaption,time,aside,small,blockquote { margin: 0; padding: 0; }
+html,header,nav,footer,section,article,figure,figcaption,aside,small { display: block; }
+body {
+	width: 100vw;
+	// height: calc(var(--vh, 1vh) * 100);
+	height: 100vh; 
+	position: relative;
+	overflow: hidden;
+	background-color: #fff;
+    color: #333;
+	font-family: $base_font_family;
+    font-size: 13px;
+	font-size: 0.6771vw;
+    font-weight: normal;
+    line-height: 1.4;
+    margin-left: auto;
+    margin-right: auto;
+	word-break: keep-all;
+	-ms-word-break: keep-all;
+}
+* { box-sizing: border-box; }
+h1, h2, h3, h4, h5, h6 { 
+	font-family: $base_font_family;
+	margin: 0; 
+}
+ul, ol { list-style: none; }
+img, fieldset, input, button { border: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+a:link, a:visited, a:hover, a:active { text-decoration: none; }
+a:focus { outline: none !important; }
+input, button, img { vertical-align: middle; }
+.skip, caption { /*legend*/
+	width: 1px;
+	height: 1px; 
+	overflow: hidden; 
+	visibility: hidden; 
+	line-height: 0; 
+	font-size: 0; 
+	position: absolute; 
+	left: -999px;
+}

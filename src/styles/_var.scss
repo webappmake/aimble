@@ -1,0 +1,48 @@
+/* ------------------------------------------------------- FONT ------------------------------------------------------- */
+$base_font_family:  "Roboto", "Noto Sans KR", sans-serif !important;
+/* ------------------------------------------------------- COLOR ------------------------------------------------------- */
+$primary: #ffe228;
+$primary-intellytics: #CECAF6;
+$primary-light: #7879F1;
+$primary-dark: #4A45BD;
+$bg_actived_dark: #A5A5E3;
+$bg_blank_area: rgba(224, 224, 246, 0.4);
+$border: #e3ebf6;
+$color-white: #ffffff;
+$color-lightgray: #f9fafb;
+$color-gray: #999999;
+$color-darkgray: #555555;
+$color-title: #191f28;
+$color-description: #4e5968;
+$color-mark: #cc0000;
+$table-border: #04314d;
+$table-sub-title: #70707f;
+/* ------------------------------------------------------- LAYOUT ------------------------------------------------------- */
+$gutter-xs: 6px; 
+$gutter-sm: 12px;
+$gutter-md: 24px; 
+$gutter-lg: 30px; 
+$gutter-xl: 40px;
+$gutter-xxl: 60px;
+$radius-sm: 4px;
+$radius-md: 12px;
+/* vw 변환 */
+$header-height: max(10.4167vw, 150px);
+$tab-item-height: max(2.5vw, 48px); 
+$layout-gutter-left: max(6.2500vw, 120px);
+$layout-gutter-right: max(10.4167vw, 180px);
+$gutter-xs: 0.3125vw; 
+$gutter-sm: 0.6250vw;
+$gutter-md: 1.2500vw; 
+$gutter-lg: 1.5625vw; 
+$gutter-xl: 2.0833vw;
+$gutter-xxl: 3.1250vw;
+$radius-sm: 0.2083vw;
+$radius-md: 0.6250vw;
+/* CardHeader 추가에 따른 크기 재설정 */
+$card-height: max(9.0625vw, 174px);
+$card-header-height: max(2.9167vw, 56px);
+$card-content-height: max(6.1458vw, 118px);
+$card-height-qhd: max(6.5625vw, 168px);
+$card-header-height-qhd: max(2.1875vw, 56px);
+$card-content-height-qhd: max(4.3750vw, 112px);

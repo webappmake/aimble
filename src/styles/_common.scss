@@ -1,0 +1,785 @@
+@charset "utf-8";
+
+@import "var", "reset", "mixins";
+@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
+@import '@fontsource/roboto/300.css';
+@import '@fontsource/roboto/400.css';
+@import '@fontsource/roboto/500.css';
+@import '@fontsource/roboto/700.css';
+
+/* Common > Layout */
+.wrapper {
+  width: 100vw;
+  // height: calc(var(--vh, 1vh)*100);
+  height: 100vh;
+  background-color: $primary;
+  position: relative;
+  padding: max(#{$gutter-xl}, 18px);
+  z-index: 999;
+  .common-header {
+    @include flex;
+    width: 100%;    
+    height: $header-height; 
+    justify-content: space-between;
+  }
+  .common-container {
+    width: 100vw;
+    width: calc(100vw - #{$layout-gutter-right});
+    // height: calc(var(--vh, 1vh)*100 - #{$header_height} - max(#{$gutter-xl}, 18px));
+    height: calc(100vh - #{$header_height} - max(#{$gutter-xl}, 18px));
+    margin-left: min(-2.084vw, -18px);
+    overflow: hidden;
+    z-index: 997; 
+  }
+  // &.admin-portal {}
+  // &.intellytics-dashboard {}
+}
+
+/* Header */
+.common-header {
+  & > h1 {
+    min-width: 200px;
+    width: max(12.5000vw, 200px);
+    img {
+      width: 100%;
+      height: auto;
+      padding: max(#{$gutter-xs}, 3px);
+    }
+  }
+  .introduction {
+    text-transform: uppercase;
+    margin: 0 max(#{$gutter-xl}, 18px);    
+    .tit { 
+      font-size: max(0.8854vw, 15px);
+      font-weight: 600;
+      letter-spacing: .1rem;
+      margin-bottom: $gutter-sm;
+    }
+    .desc {
+      color: $color-darkgray;
+      font-size: max(0.6771vw, 11px);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+  }
+  .nav {
+    @include flex;
+    flex-direction: column;
+    align-items: end;
+    .user-info { 
+      width: max(20.8333vw, 400px);
+      flex-shrink: 0;      
+      text-align: right;
+      margin-bottom: max(#{$gutter-lg}, 15px);
+      &:hover { text-decoration: underline; }
+      &::after {
+        content: '';
+        width: max(2.8125vw, 28px);
+        height: max(0.2604vw, 3px);
+        background-color: $color-title;
+        display: inline-block;
+      }
+      span { 
+        display: block;
+        font-size: unquote("max(0.8333vw, 12px)");
+        line-height: 1.5;
+        &:first-child { margin-bottom: $gutter-xs; }
+      }
+    }
+    .link-list {
+      text-align: right;
+      font-size: max(0.7813vw, 13px);
+      font-weight: 600;
+      line-height: 1.7;
+      letter-spacing: .1rem;
+      text-transform: uppercase;
+      a:hover { text-decoration: underline; }
+      &.only {
+        &::before {
+          content: '';
+          width: max(2.8125vw, 28px);
+          height: max(0.2604vw, 3px);
+          background-color: $color-title;
+          display: inline-block;
+          margin-bottom: max(#{$gutter-lg}, 15px);
+        }
+      }
+    }
+  }
+  .link {
+    position: absolute; top: 30%; right: -2px; 
+    transform: rotate(-90deg);
+    transform-origin: bottom right;
+    justify-content: space-between;
+    min-width: max(10.4167vw, 200px);
+    line-height: max(2.2917vw, 44px);
+    padding: 0 max(1.25vw, 24px);
+    color: #333; 
+    font-size: max(0.7813vw, 15px);
+    font-weight: 500;
+    letter-spacing: .14rem;
+    border-radius: 0;
+    border-top-left-radius: max(0.9375vw, 18px);
+    border-top-right-radius: max(0.9375vw, 18px);
+    z-index: 999;      
+    &.admin-portal { background-color: $primary; }
+    &.intellytics-portal { top: 25%; background-color: #CECAF6; }
+    svg { transform: rotate(90deg); }
+  }
+}
+
+/* Footer */
+.common-footer {
+  .footer-logo {
+    position: absolute; bottom: max(#{$gutter-xl}, 18px); left: max(#{$gutter-xl}, 18px);
+    img { 
+      width: max(2.0833vw, 24px);
+      height: auto;
+    }
+  }
+  .footer-info {
+    position: absolute; bottom: max(#{$gutter-xl}, 18px); right: max(#{$gutter-xl}, 18px);   
+    text-align: right;
+    .contact {   
+      color: $color-darkgray;
+      line-height: 2; 
+      text-align: right;
+      padding-bottom: max(#{$gutter-sm}, 6px);
+      em { 
+        display: block;
+        font-style: normal;
+        font-size: max(0.6771vw, 12px);
+        font-weight: 600;
+        letter-spacing: .05rem;
+      }
+      span {
+        display: block;
+        font-size: max(0.6250vw, 12px);
+        font-weight: 400;
+        letter-spacing: -0.05rem; 
+      }      
+    }
+    .MuiFormControl-root { //mui
+      width: max(6.7708vw, 130px); 
+      text-align: left; 
+    }
+    .MuiInputBase-root { font-size: max(0.6771vw, 13px); line-height: 2; }
+    .MuiFormLabel-root { font-size: max(0.6250vw, 12px); }
+  }
+  & > .copy {
+    position: fixed;
+    top: 480px;
+    left: -75px;    
+    transform: rotate(-90deg);
+    font-size: max(0.5208vw, 10px);
+    color: $color-gray;
+  }
+}
+
+/* Container > Tabs */
+.common-container { 
+  .common-tabs {
+    height: $tab-item-height;
+    margin-left: $layout-gutter-left;
+    *:not(.MuiSvgIcon-root) { 
+      letter-spacing: .1rem; 
+      font-size: max(0.8854vw, 14px);
+      font-weight: 600;      
+    }
+    .MuiTabs-indicator { height: max(0.2083vw, 4px); }
+    .MuiButtonBase-root { 
+      min-height: $tab-item-height;
+      max-width: inherit; //mui
+      padding: 0.6250vw 0.8333vw; //mui
+      &.tab-admin { 
+        position: absolute; top: 0; right: 0;
+        min-width: inherit;
+        * { vertical-align: middle; }
+        .MuiSvgIcon-root {
+          width: max(1.2500vw, 24px);
+          height: max(1.2500vw, 24px);
+        }
+      }
+    }
+  }
+  .MuiBox-root { border: none; padding: 0; }
+  .common-tab-panel {
+    position: relative;  
+    width: calc(100vw - #{$layout-gutter-right});
+    height: calc(100% - #{$tab-item-height});
+    background-color: $color-white;
+    .contents {
+      // height: calc(var(--vh, 1vh)*100 - #{$header-height} - #{$tab-item-height} - max(#{$gutter-xl}, 18px));
+      height: calc(100vh - #{$header-height} - #{$tab-item-height} - max(#{$gutter-xl}, 18px));
+      .vertical-scroll-area {        
+        padding-top: max(#{$gutter-sm}, 6px); 
+        padding-right: max(#{$gutter-sm}, 6px); 
+        padding-bottom: max(#{$gutter-lg}, 12px); 
+        padding-left: calc(#{$layout-gutter-left} - #{$gutter-sm});
+      }
+      &.no-data {
+        @include flex;
+        align-items: center;
+        justify-content: center;
+        span { 
+          font-size: max(0.7813vw, 13px);
+          letter-spacing: .1rem;
+          color: $color-gray;
+        }
+      } 
+    }     
+  }
+}
+
+/* Container > Card */
+.card-wrap {
+  @include flex;
+  width: 100%;
+  flex-wrap: wrap;
+  // common & Authorized 
+  .MuiCard-root {    
+    position: relative;
+    width: max(17.9688vw, 300px);
+    // min-height: max(7.8125vw, 150px); 하기 .card-desc ellipsis 변경에 따라 높이 변경됨
+    // min-height: max(8.4375vw, 162px); card-header 생성에 따라 높이값 변경됨 162 -> 174
+    min-height: $card-height;
+    height: auto;
+    margin: max(#{$gutter-sm}, 6px);
+    .card-header {
+      padding-bottom: max(#{$gutter-xs}, 3px); 
+      .MuiCardHeader-title {
+        font-size: max(0.8854vw, 17px);
+        font-weight: 600;
+        line-height: max(1.4583vw, 28px);
+      }
+    }
+    .MuiCardContent-root { 
+      // min-height: max(7.8125vw, 150px); 하기 .card-desc ellipsis 변경에 따라 높이 변경됨
+      // min-height: max(8.4375vw, 162px); card-header 생성에 따라 높이값 변경됨 162 -> 174
+      min-height: $card-content-height;
+      padding: max(0.8333vw, 16px); //mui   
+      padding-top: max(#{$gutter-sm}, 6px);
+      .card-desc { 
+        // @include ellipsis(2, 18px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word; 
+        line-height: 1.3;
+        height: max(2.8125vw, 54px);
+        font-size: max(0.7292vw, 14px);
+        color: $color-description;
+        margin-bottom: max(#{$gutter-sm}, 6px); 
+      }
+      .chip-wrap {
+        margin: - calc($gutter-xs/2);
+        .MuiChip-sizeSmall {
+          font-size: max(0.5729vw, 11px);
+          line-height: 1;
+          padding: 0 max(#{$gutter-xs}, 3px);
+          margin: calc($gutter-xs/2);
+          &.Mui-disabled { opacity: 0 !important; }
+        }
+      }
+    }
+    .MuiFab-root {
+      &.Mui-disabled {
+        @include shadow;
+        background-color: $color-lightgray !important; 
+      }
+      .MuiSvgIcon-root { 
+        width: max(1.2500vw, 24px); //mui
+        height: max(1.2500vw, 24px); //mui
+      }
+    }
+  }
+  // Unauthorised
+  &.unauthorized {
+    .MuiCard-root {
+      overflow: visible !important;
+      .MuiFab-root {
+        position: absolute; bottom: -20px; left: calc(50% - 28px);
+        width: max(2.9167vw, 56px); //mui
+        height: max(2.9167vw, 56px); //mui
+        min-height: unset;
+        // .MuiSvgIcon-root { 
+        //   width: max(1.2500vw, 24px); //mui
+        //   height: max(1.2500vw, 24px); //mui
+        // }
+      }
+    }  
+  }
+  // Declined, Long-term
+  &.declined,
+  &.longterm {
+    .MuiCard-root {     
+      overflow: visible !important;
+      .MuiFab-root { 
+        position: absolute; bottom: -20px; left: calc(50% - 69px);
+        span { line-height: 1; font-size: max(0.6250vw, 12px); }
+      }
+    }
+  }
+}
+
+/* Dialog */
+.common-dialog {
+  .MuiDialogTitle-root {
+    font-size: max(1.0417vw, 18px);
+    padding: 0.8333vw 1.2500vw; //mui
+    & > span { display: inline-block; vertical-align: middle; }
+    .MuiChip-sizeSmall {
+      font-size: max(0.6250vw, 12px);
+      font-weight: 600;
+      line-height: 1;
+      margin-left: max(#{$gutter-xs}, 3px);
+    } 
+  }
+  .MuiDialogContent-root {
+    padding: 1.0417vw 1.2500vw; //mui
+    .MuiDialogContentText-root {
+      color: $color-darkgray;
+      font-size: max(0.6771vw, 13px);
+      line-height: 1.6;
+      letter-spacing: -.01rem;      
+      margin: max(#{$gutter-sm}, 6px) 0;
+      em {                 
+        display: block;
+        font-style: normal;
+        font-size: max(0.7292vw, 14px);
+        font-weight: 600;
+      } 
+      & > .text-mark {
+        display: block;
+        color: $color-mark;       
+        font-weight: 600;
+        margin: max(#{$gutter-sm}, 6px) 0;        
+      }        
+    }
+    .MuiInput-input { font-size: max(0.6771vw, 13px); }  
+    .MuiFormControlLabel-label { 
+      font-size: max(0.6250vw, 12px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -.01rem;  
+      color: $color-darkgray;
+    }
+    .MuiAlert-root { 
+      margin-top: max($gutter-sm, 6px); 
+      .comment {
+        display: block; 
+        font-weight: 600;
+        font-size: max(0.6771vw, 13px);
+        &.admin { 
+          font-weight: 400;
+          margin-top: max($gutter-xs, 3px); 
+        }
+      }
+    }
+    .MuiFormControlLabel-root {
+      .MuiSvgIcon-root {
+        width: max(1.2500vw, 24px);
+        height: max(1.2500vw, 24px);
+      }
+    }
+  }
+  .MuiDialogActions-root {
+    padding: 0 $gutter-md $gutter-md;
+    Button { flex-grow: 1; }
+  }
+  .MuiTypography-body2 { font-size: max(0.7292vw, 14px); }
+  .MuiTypography-caption { font-size: max(0.6250vw, 12px); }
+}
+
+/* Popover */
+.user-info-wrap {
+  .MuiInput-input { font-size: max(0.6771vw, 13px); } 
+  .MuiFormControl-root {
+    margin-top: 0.4167vw;
+    margin-bottom: 0.2083vw;
+    label + .MuiInputBase-root { margin-top: max(0.8333vw, 16px); }
+    .MuiFormLabel-root { font-size: max(0.8333vw, 16px); }
+    .MuiFormHelperText-root { font-size: max(0.6250vw, 12px); }
+  }
+  .MuiButtonBase-root {    
+    font-size: max(0.6250vw, 12px);
+    padding: 0.3125vw 0.8333vw; 
+  }
+  // [TADMIN-255] 사용자 설정 기능 추가
+  .tit { 
+    color: $primary-dark;
+    font-size: max(0.8854vw, 15px);
+    letter-spacing: .1rem;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: $gutter-xs;
+  }
+  .MuiPopover-paper {
+      width: max(15.1042vw, 290px);
+      padding: $gutter-sm;
+      left: unset !important;
+      right: max(2.0833vw, 18px);
+      background-color: $color-lightgray;
+  }
+  .text-helper {
+      color: $color-mark;
+      margin: $gutter-sm 0;
+  }
+}
+
+/* Responsive */
+@media (min-width: 2400px) {
+  .common-header {
+    .link {
+      svg { font-size: 1.0417vw !important; } //mui 
+    }
+  }
+  .card-wrap {   
+    .chip-wrap {
+      .MuiChip-sizeSmall { 
+        padding: $gutter-sm $gutter-xs !important; 
+        border-radius: 0.8333vw !important;
+      }
+    }
+  }
+  .common-footer {
+    .copy { display: none; } 
+  }
+
+  /* Mui Dialog */
+  .MuiDialog-container {
+    .MuiPaper-root {
+      max-width: 31.2500vw;
+      .MuiAlert-message { padding: 0.4167vw 0; }
+      .MuiFormControl-root {
+        margin-top: 0.4167vw;
+        margin-bottom: 0.2083vw;
+        label + .MuiInputBase-root { margin-top: max(0.8333vw, 16px); }
+        .MuiFormLabel-root { font-size: max(0.8333vw, 16px); }
+        .MuiFormHelperText-root { font-size: max(0.6250vw, 12px); }
+      }
+      .MuiPaper-root {
+        margin-top: max($gutter-sm, 6px);
+        padding: 0.3125vw 0.8333vw;
+        .MuiAlert-icon {
+          margin-right: 0.6250vw;
+          padding: 0.3646vw 0;
+          .MuiSvgIcon-root { font-size: max(1.1458vw, 22px); }
+        }
+      }        
+      .MuiDialogActions-root {
+        .MuiButtonBase-root {
+          font-size: max(0.7292vw, 14px);
+          padding: 0.3125vw 0.8333vw;
+          & + .MuiButtonBase-root { margin-left: 0.4167vw; }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1921px) {
+  .card-wrap {
+    // Unauthorised
+    &.unauthorized {
+      .MuiCard-root {
+        .MuiFab-root { bottom: -1.0417vw; left: calc(50% - 1.4583vw); }
+      }  
+    }
+    // Declined, Long-term
+    &.declined,
+    &.longterm {
+      .MuiCard-root {
+        .MuiFab-root { 
+          bottom: -1.0417vw; left: calc(50% - 3.5938vw);          
+          height: max(2.0833vw, 40px); //mui
+          border-radius: 2.0833vw;
+          min-width: max(7.2917vw, 140px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1500px) {
+  .common-header {
+    .introduction br { display: none; }
+  }  
+}
+
+@media (max-width: 1245px) {
+  .common-container { 
+    .common-tab-panel {
+      .contents {
+        .vertical-scroll-area { padding-left: 70px; }
+      }
+    }
+  }
+}
+
+@media (max-width: 1040px) {
+  .common-header {
+    .introduction {
+      .desc { display: none; }
+    }
+    .nav {
+      .user-info { width: 240px; }
+    }
+  }  
+}
+
+@media (max-width: 1024px) {
+  .common-container {
+    .common-tabs .MuiButtonBase-root {
+      padding: $gutter-xs $gutter-sm;
+      letter-spacing: .01rem;
+    }
+  }
+}
+
+@media (max-width: 980px) {
+  .common-header {
+    .introduction {
+      .tit { 
+        font-size: max(0.8854vw, 12px);
+        font-weight: 400;
+        letter-spacing: .01rem;
+      }
+      .desc { display: none; }
+    }
+  }  
+}
+
+@media (max-width: 880px) {
+  .common-container { 
+    .common-tabs {
+      margin-left: max(2.0833vw, 18px);
+      .MuiButtonBase-root { 
+        &.tab-admin { position: inherit; }
+      }
+    }
+    .common-tab-panel {
+      .contents {
+        .vertical-scroll-area { padding-left: max(#{$gutter-sm}, 6px); }
+      }
+    }
+  }
+  .common-footer {
+    .footer-logo {
+      left: unset;
+      bottom: 120px;
+      right: max(#{$gutter-xl}, 18px);
+    }
+    .copy { display: none; }
+  }
+}
+
+@media (max-width: 600px) {
+  .common-header {
+    .introduction { display: none; }
+    .nav {
+      .user-info { 
+        width: auto; 
+        padding-left: max(#{$gutter-sm}, 6px);
+      }
+    }
+  } 
+  .common-container { 
+    .common-tabs {
+      margin-left: 0;
+      .MuiButtonBase-root { 
+        &.MuiTabs-scrollButtons { display: flex; }
+      }
+    }
+  }
+}
+
+/* Responsive: 특정 디바이스 해상도 3440x1440 사용자용 */
+@media (min-width: 2560px) {
+  // 값 참고
+  // $header-height: 5.8594vw;
+  // $layout-gutter-right: 7.4219vw;
+  // $gutter-xl: 1.1719vw;
+  // $tab-item-height: 1.8750vw;
+
+  /* Common > Layout */
+  .wrapper {
+    padding: 1.1719vw;
+    .common-header { 
+      height: 5.8594vw;
+    }
+    .common-container { 
+      width: calc(100vw - 7.4219vw);
+      height: calc(100vh - 5.8594vw - 1.1719vw);
+      margin-left: -1.1719vw;
+    }
+  }
+  /* Header */
+  .common-header {
+    & > h1 {
+      width: 9.3750vw;
+    }
+    .introduction {
+      .tit { 
+        font-size: 0.7813vw;
+      }
+      .desc {
+        font-size: 0.5078vw;
+      }
+    }
+    .nav {
+      .user-info {      
+        width: 31.2500vw;
+        span { 
+          font-size: 0.7031vw;
+        }
+      }
+      .link-list {
+        font-size: 0.7031vw;
+      }
+    }
+    .link {
+      min-width: 7.8125vw;
+      line-height: 1.7188vw;
+      padding: 0 0.9375vw;
+      font-size: 0.5859vw;
+      border-radius: 0;
+      border-top-left-radius: 0.7031vw;
+      border-top-right-radius: 0.7031vw;
+    }
+  }
+  /* Footer */
+  .common-footer {
+    .footer-logo { 
+      bottom: 1.1719vw; left: 1.1719vw;
+      img { 
+        width: 1.1719vw;
+      }
+    }
+    .footer-info {
+      bottom: 1.1719vw; right: 1.1719vw;
+      .contact {
+        em { 
+          font-size: 0.5469vw;
+        }
+        span {
+          font-size: 0.4688vw;
+        }      
+      }
+      .MuiFormControl-root { //mui
+        width: 5.2734vw; 
+        text-align: left; 
+      }
+      .MuiInputBase-root { font-size: 0.5859vw; line-height: 1.6; }
+    }
+    & > .copy {
+      display: none;
+    }
+  }
+  /* Container > Tabs */
+  .common-container { 
+    .common-tabs {
+      height: 1.8750vw;
+      margin-left: 4.6875vw;
+      *:not(.MuiSvgIcon-root) { font-size: 0.5469vw; }
+      .MuiTabs-indicator { height: 0.1563vw; }
+      .MuiButtonBase-root { 
+        min-height: 1.8750vw;
+        padding: 0.4688vw 0.6250vw; //mui
+        &.tab-admin { 
+          .MuiSvgIcon-root { width: 0.9375vw; height: 0.9375vw; }
+        }
+      }
+    }
+    .common-tab-panel {
+      width: calc(100vw - 7.4219vw);
+      height: calc(100% - 1.8750vw);
+      .contents {
+        height: calc(100vh - 5.8594vw - 1.8750vw - 1.1719vw);
+        .vertical-scroll-area { padding: 0.2344vw 0.2344vw 0.4688vw 4.2188vw; }
+        &.no-data {
+          span { font-size: 0.5078vw; }
+        } 
+      }     
+    }
+  } 
+  /* Container > Card */
+  .card-wrap {
+    margin: 0 -0.2344vw; 
+    // common & Authorized 
+    .MuiCard-root { 
+      width: 13.5156vw;
+      min-height: $card-height-qhd;
+      margin: 0.4688vw;
+      .card-header {
+        height: $card-header-height-qhd; 
+        padding-left: 0.6250vw; 
+        padding-right: 0.6250vw;         
+        .MuiCardHeader-title {
+          font-size: 0.6641vw;
+          line-height: 1.0938vw;
+        }
+        .MuiSvgIcon-root {
+          width: 0.9375vw;
+          height: 0.9375vw;
+        }            
+      }
+      .MuiCardContent-root { 
+        min-height: $card-content-height-qhd;
+        padding: 0.6250vw;
+        padding-top: 0.2344vw;
+        .card-desc { 
+          height: 2.1094vw;  
+          font-size: 0.5469vw;
+          // margin-bottom: 0.2344vw;
+          margin-bottom: 0.4688vw;
+        }
+        .chip-wrap {
+          margin: -0.0781vw;
+          .MuiChip-sizeSmall {
+            font-size: 0.4297vw;
+            line-height: 1;
+            padding: 0 0.1172vw !important;
+            margin: 0.0781vw;
+          }
+        }
+      }
+      .MuiFab-root {
+        &.Mui-disabled {
+          @include shadow;
+          background-color: $color-lightgray !important; 
+        }
+        .MuiSvgIcon-root { 
+          max-width: 0.9375vw; 
+          max-height: 0.9375vw; 
+        }
+      }
+    }
+    // Unauthorised
+    &.unauthorized {
+      .MuiCard-root {
+        .MuiFab-root {
+          bottom: -1.0938vw;
+          left: calc(50% - 1.0938vw);
+          max-width: 2.1875vw; 
+          max-height: 2.1875vw;
+        }
+      }  
+    }
+    // Declined, Long-term
+    &.declined,
+    &.longterm {
+      .MuiCard-root {
+        .MuiFab-root {
+          bottom: -0.7813vw;
+          left: calc(50% - 2.6953vw);
+          height: 1.5625vw;
+          min-width: inherit;
+          span { font-size: 0.4688vw; }
+        }
+      }
+    }
+  }
+}
