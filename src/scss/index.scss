@@ -1,0 +1,251 @@
+@charset "utf-8";
+
+@import "var", "mixins", "reset";
+
+/* ------------------------------------------------------- Common Layout ------------------------------------------------------- */
+.emp-renewal {
+  width: 100vw;
+  height: 100vh;
+  background-color: $bg-dark-gray;
+  .wrapper {    
+    @include flex;
+    height: auto;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: $gutter-lg 0 0;
+    .main { 
+      @include flex;
+      width: 576px;
+      height: 720px;
+      flex-direction: column;
+      justify-content: space-between;          
+      background-color: $bg-light-gray;
+      margin: 0 auto $gutter-lg;
+      &-header {
+        @include flex;
+        height: $main-header-height;
+        padding: 0 $gutter-lg;
+        align-items: center;
+        .MuiIconButton-root { color: #000; }
+        .tit {
+          flex-grow: 1;
+          text-align: center;
+          margin-left: -34px; //(#{$gutter-lg}+45px)/2
+          font-size: 17px;
+          font-weight: 700;
+        }
+      }
+      &-body { flex-grow: 1; }
+      &-body, 
+      &-footer {
+        @include flex;
+        align-items: center;
+        padding: 0 $gutter-xl $gutter-xl;
+      }
+    }
+    .language {
+      @include flex;
+      justify-content: center;
+      margin: $gutter-lg 0;
+      .MuiOutlinedInput-root { border-radius: $radius-xl; }
+    }
+    .copy { 
+      display: block;
+      line-height: $copy-height;
+      text-align: center;
+    }
+  }
+}
+/* ------------------------------------------------------- Page > Home ------------------------------------------------------- */
+.main.home {    
+  .main-body {
+    .welcome {
+      @include flex;
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      h1 {
+        line-height: 0;
+        img {
+          width: 72px;
+          height: 72px;
+        }
+        strong { 
+          display: block;
+          font-size: 38px;
+          line-height: 1;
+          padding-top: $gutter-md;
+          span { font-size: 38px; }
+        }
+      }
+      &-message {
+        padding: $gutter-lg 0;
+        strong { 
+          font-size: 24px;
+          letter-spacing: .025rem;
+        }
+        small { 
+          display: block;
+          font-size: 16px; 
+          margin-top: $gutter-sm;
+        }
+      }
+      .lg-login {
+        width: 75%;
+        margin: 0 auto $gutter-md; 
+        .MuiOutlinedInput-root {
+          background-color: $color-white;
+          border-radius: $radius-lg;
+          &:not(.Mui-focused) {
+            .MuiOutlinedInput-notchedOutline { border-color: $color-white; }
+          }
+          .MuiInputAdornment-root {
+            p {
+              width: 28px;
+              color: $color-gray;
+              font-weight: 600;
+            }
+          }
+        }
+        .MuiButtonBase-root { 
+          border-radius: $radius-lg; 
+          margin: $gutter-md 0;
+        }
+      }
+      .btn-login {
+        @include shadow;
+        width: 100%;
+        background-color: #fff;
+        border-radius: $radius-md;
+        overflow: hidden;
+        text-align: left;
+        padding: $gutter-xl $gutter-lg;
+        position: relative;
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          position: absolute; top: 50%; right: $gutter-lg;
+          margin-top: -12px;
+          background: url(../img/chevron-right.svg) no-repeat 0 0 / 100% auto;
+        }
+        span { 
+          display: block;
+          font-size: 15px;
+          line-height: 2;
+        }
+        strong {
+          font-size: 24px;
+          font-weight: 700;
+        }
+      }
+    }
+  }   
+  .main-footer {          
+    img {
+      width: 60px;
+      height: 60px;
+    }
+    p {
+      color: #444;
+      font-size: 15px;
+      line-height: 1.2;
+      margin-left: $gutter-md;
+      & > strong {
+        display: block;
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: $gutter-xs;
+      }
+    }
+  }
+}
+/* ------------------------------------------------------- Page > Login (Pin&Qr) ------------------------------------------------------- */
+.main.login {
+  .main-body {   
+    flex-direction: column;
+    .desc {
+      width: 100%;
+      color: #444;
+      font-size: 15px;
+      flex-basis: 25%;
+    }
+    .view {
+      @include flex;
+      width: 160px;
+      height: 160px;
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+      &-time {
+        font-size: 13px;
+        padding: $gutter-sm 0;
+      }
+      &-qr {
+        @include flex;
+        width: 160px;
+        height: 160px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        img { 
+          width: 100%; 
+          height: 100%;
+        }
+      }
+      &-num {
+        height: 160px;
+        align-items: center;
+        span {
+          font-size: 60px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .main-footer {
+    height: 25%;
+    align-items: flex-start;
+    justify-content: center;
+    .shortcut {
+      @include flex;
+      padding: $gutter-xs;
+      text-decoration: none;
+      & > img {
+        width: 24px;
+        height: 24px;
+        margin-right: $gutter-sm;
+      }
+      & > span {
+        color: #000;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 24px; 
+      }
+    }
+  }
+}
+/* ------------------------------------------------------- Page > Error ------------------------------------------------------- */
+.emp-renewal {
+  .wrapper {    
+    .main { 
+      &.error {
+        justify-content: center;
+        text-align: center;
+        padding: $gutter-lg $gutter-lg $gutter-xxl;
+        .tit {
+          font-size: 42px;
+          font-weight: 600;
+          line-height: 1;
+          margin-bottom: $gutter-xl;
+        }
+        .desc { font-size: 15px; }
+      }
+    }
+  }
+}
+@import "responsive";

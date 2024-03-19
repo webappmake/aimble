@@ -1,0 +1,86 @@
+/* ------------------------------------------------------- COMMON > SIGN-IN ------------------------------------------------------- */
+@media (min-width: 577px) {  
+  .emp-renewal {    
+    .wrapper {
+      .main { 
+        @include shadow-box;
+        width: 576px;
+        height: 720px;
+        border-radius: $radius-lg;
+        &.login { margin-top: 85px; }
+      }
+    }
+  }
+}
+@media (max-width: 576px) {
+  .emp-renewal {
+    background-color: $bg-light-gray;
+    .wrapper {
+      height: 100%;
+      padding-top: 0;
+      .main { 
+        width: 100%;
+        flex-grow: 1;        
+        margin-bottom: 0;
+      }
+      .copy { display: none; }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .emp-renewal {
+    .wrapper {
+      .main {
+        &-body {
+          height: auto;
+          padding: 0 $gutter-lg;
+          margin-bottom: $gutter-xl;
+          .welcome {            
+            .lg-login { 
+              width: 100%;               
+            }      
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-height: 716px) {
+  .emp-renewal {
+    .wrapper {
+      .main {
+        &-body {
+          .lg-login { margin-bottom: 0; }
+          .welcome {
+            h1 strong {
+              font-size: 32px;
+              padding-top: $gutter-xs;
+              span { font-size: 32px; }
+            }
+            &-message { 
+              padding: $gutter-md 0; 
+              small { font-size: 14px; }
+            }
+            .btn-login { 
+              padding: $gutter-md $gutter-lg; 
+              margin-bottom: 0; 
+              span { font-size: 13px; } 
+              strong { font-size: 18px; } 
+            }
+          }
+        }
+        &.home {
+          .main-footer { 
+            padding: 0 $gutter-lg $gutter-md; 
+            p {  
+              & > strong { font-size: 15px; }
+              & > strong { font-size: 13px; }
+            }
+          }
+        }
+      }
+      .language { margin: $gutter-md 0; }
+      .copy { display: none; }
+    }
+  }
+}

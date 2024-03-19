@@ -1,0 +1,56 @@
+/* ------------------------------------------------------- FONT ------------------------------------------------------- */
+@import "@fontsource/noto-sans-kr";
+@import '@fontsource/noto-sans-kr/200.css';
+@import '@fontsource/noto-sans-kr/300.css';
+@import '@fontsource/noto-sans-kr/400.css';
+@import '@fontsource/noto-sans-kr/500.css';
+@import '@fontsource/noto-sans-kr/600.css';
+@import '@fontsource/noto-sans-kr/700.css';
+@import '@fontsource/noto-sans-kr/800.css';
+
+@import "@fontsource/noto-sans";
+@import '@fontsource/noto-sans/200.css';
+@import '@fontsource/noto-sans/300.css';
+@import '@fontsource/noto-sans/400.css';
+@import '@fontsource/noto-sans/500.css';
+@import '@fontsource/noto-sans/600.css';
+@import '@fontsource/noto-sans/700.css';
+@import '@fontsource/noto-sans/800.css';
+
+$base_font_family: 'Noto Sans', 'Noto Sans KR', sans-serif !important; 
+/* ------------------------------------------------------- COLOR ------------------------------------------------------- */
+$primary: #5D5FEF;
+$secondary: #8486ff;
+$secondary-dark: #4A45BD;
+
+$color-white: #ffffff;
+$color-gray: #999999;
+$color-title: #000;
+$color-description: #7e7c77;
+$color-tooltip: #393690; 
+$color-background: #f4f4f4;
+$color-error: #ea1917;
+$color-lg: #A50034;
+$color-blue: #0057FF;
+
+$bg-light-gray: #F6F6F6;
+$bg-dark-gray: rgba(0, 0, 0, .1);
+
+/* ------------------------------------------------------- LAYOUT ------------------------------------------------------- */
+$main-header-height: 70px;
+$copy-height: 60px;
+
+
+$radius-sm: 4px;
+$radius-md: 12px;
+$radius-lg: 24px;
+$radius-xl: 60px;
+
+$gutter-xs: 4px;
+$gutter-sm: 8px;
+$gutter-md: 16px;
+$gutter-lg: 24px;
+$gutter-xl: 32px;
+$gutter-xxl: 48px;
+$radius-sm: 4px;
+$radius-md: 12px;
